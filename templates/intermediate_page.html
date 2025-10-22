@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Break{% endblock %}
+{% block content %}
+<div style="text-align: center; margin-top: 100px;">
+  <h1 style="font-size: 4em;">Break</h1>
+  <form action="/next_language" method="post">
+    <button type="submit">Next Language</button>
+  </form>
+</div>
+{% endblock %}

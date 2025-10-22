@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Results{% endblock %}
+{% block content %}
+<h1 style="text-align: center;">Results</h1>
+<div id="averages" style="margin-bottom: 20px;"></div>
+<div style="text-align: center;">
+  <form action="/advance" method="post">
+    <button type="submit">Next Session</button>
+  </form>
+</div>
+<script>
+  // On page load, fetch averages from the server and display them in a table.
+  fetch('/end_experiment', { method: 'POST' })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('averages').innerHTML = `
+        <table border="1" style="margin: auto; border-collapse: collapse;">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Time_talking (seconds)</td><td>${data.Time_talking.toFixed(2)} s</td></tr>
+            <tr><td>Time_asr (seconds)</td><td>${data.Time_asr.toFixed(2)} s</td></tr>
+            <tr><td>Time_edit (seconds)</td><td>${data.Time_edit.toFixed(2)} s</td></tr>
+            <tr><td>Time_server (seconds)</td><td>${data.Time_server.toFixed(2)} s</td></tr>
+            <tr><td>Time_total (seconds)</td><td>${data.Time_total.toFixed(2)} s</td></tr>
+            <tr><td>T_words</td><td>${data.T_words}</td></tr>
+            <tr><td>S_words</td><td>${data.S_words}</td></tr>
+            <tr><td>P_words</td><td>${data.P_words}</td></tr>
+            <tr><td>WPM_user</td><td>${data.WPM_user.toFixed(2)}</td></tr>
+            <tr><td>WPM_server</td><td>${data.WPM_server.toFixed(2)}</td></tr>
+            <tr><td>WPM_asr</td><td>${data.WPM_asr.toFixed(2)}</td></tr>
+            <tr><td>CER_asr (%)</td><td>${data.CER_asr.toFixed(2)}%</td></tr>
+            <tr><td>WER_asr (%)</td><td>${data.WER_asr.toFixed(2)}%</td></tr>
+            <tr><td>CER_user (%)</td><td>${data.CER_user.toFixed(2)}%</td></tr>
+            <tr><td>WER_user (%)</td><td>${data.WER_user.toFixed(2)}%</td></tr>
+            <tr><td>Backspaces</td><td>${data.Backspaces}</td></tr>
+          </tbody>
+        </table>
+      `;
+    })
+    .catch(err => console.error("Error fetching averages:", err));
+</script>
+{% endblock %}

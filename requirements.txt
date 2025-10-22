@@ -1,0 +1,10 @@
+flask
+werkzeug
+torch
+transformers
+librosa
+huggingface-hub
+evaluate
+numpy
+soundfile
+safetensors

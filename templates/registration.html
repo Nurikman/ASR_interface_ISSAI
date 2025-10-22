@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Registration{% endblock %}
+{% block content %}
+<div style="text-align: center;">
+  <h1>Registration</h1>
+  <form action="/register" method="post" style="display: inline-block; text-align: left;">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+   
+    <label for="surname">Surname:</label><br>
+    <input type="text" id="surname" name="surname" required><br><br>
+
+    <!-- New Gender Field -->
+    <label for="gender">Gender:</label><br>
+    <select id="gender" name="gender" required>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+      <option value="Prefer not to say">Prefer not to say</option>
+    </select><br><br>
+   
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" name="age" required><br><br>
+   
+    <label for="profession">Profession/Study Field:</label><br>
+    <input type="text" id="profession" name="profession" required><br><br>
+   
+    <label for="education">Educational Level:</label><br>
+    <select id="education" name="education" required>
+      <option value="High School">High School</option>
+      <option value="Bachelor’s">Bachelor’s</option>
+      <option value="Master’s">Master’s</option>
+      <option value="Ph.D.">Ph.D.</option>
+      <option value="Bachelor’s student">Bachelor’s student</option>
+      <option value="Master’s student">Master’s student</option>
+      <option value="Ph.D. student">Ph.D. student</option>
+      <option value="Other">Other</option>
+    </select><br><br>
+   
+    <label for="id">ID:</label><br>
+    <input type="text" id="id" name="id" required><br><br>
+   
+    <label for="group">Group:</label><br>
+    <select id="group" name="group" required>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+    </select><br><br>
+
+    <!-- New Audio Data Consent Checkbox -->
+    <input type="checkbox" id="audio_consent" name="audio_consent" >
+    <label for="audio_consent">I consent to the<br>
+                              collection and use<br> 
+                              of my audio data for<br>
+                              research purposes.</label><br><br>
+   
+    <button type="submit">Start the experiment</button>
+  </form>
+</div>
+{% endblock %}

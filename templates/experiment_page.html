@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Experiment - {{ language | upper }} {{ phase | capitalize }}{% endblock %}
+{% block content %}
+<h1 id="heading"></h1>
+<div id="text-container">
+  <p id="original-text" class="non-selectable"></p>
+</div>
+<div id="transcription-container">
+  <h2>Your Transcription:</h2>
+  <div id="transcription" contenteditable="true"></div>
+</div>
+<div id="buttons" style="position: relative;">
+  <button id="record-btn" style="position: absolute; left: 40%; transform: translateX(-50%);">Record</button>
+  <button id="next-btn" style="position: absolute; right: 35%;">Next >></button>
+</div>
+<div id="status"></div>
+<script>
+  // Pass variables to JS from the server.
+  var textFolder = "{{ textFolder }}";
+  var language = "{{ language }}";
+  var phase = "{{ phase }}";
+</script>
+{% endblock %}
