@@ -52,4 +52,23 @@ WER_asr (%): Use the provided library to compute the word error rate between S a
 
 WER_user (%): Compute the WER between T and P, then multiply by 100. Backspaces: Number of backspaces recorded during text editing in the current trial. 
 
+## How to Run
+
+### 1. Install Requirements
+Make sure you have Python 3.8 or higher installed.  
+Then install all dependencies using:
+```
+pip install -r requirements.txt
+```
+
+### 2. Insert Hugging Face API Key
+```
+hf_token = "your_huggingface_token"
+```
+
+### 3. Run the Application
+Start the applicaiton by running:
+```
+python app.py
+```
 
