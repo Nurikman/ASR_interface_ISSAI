@@ -1,6 +1,6 @@
-# Speech-to-Text Transcription Web App
+# Automatic Speech Recognition Interface Web App
 
-This web application was developed at ISSAI for conducting experiments for the research paper "User Independent Multilingual Automatic Speech Recognition Interface for Typing: Usability Study and Performance Evaluation"
+This web application was developed at ISSAI (https://issai.nu.edu.kz/about-us/) for conducting experiments for the research paper "User Independent Multilingual Automatic Speech Recognition Interface for Typing: Usability Study and Performance Evaluation"
 
 ## Overview
 This Flask-based web application implements a speech-to-text transcription system with real-time correction highlighting. It features:
@@ -11,10 +11,15 @@ This Flask-based web application implements a speech-to-text transcription syste
 - Real-time, character-by-character error highlighting (mismatches appear with a yellow background).
 - A “Next” button to load subsequent sentences.
 - Also it logs following information for data collection and further analysis:
+  
 P: Presented text (string). 
+
 P_words: Number of words in P. 
+
 S: Returned text by ASR (string).
+
 S_words: Number of words in S. 
+
 T: Transcribed text after user editing (string). 
 T_words: Number of words in T. 
 Time_talking (seconds): Time elapsed from pressing the Record button until pressing Stop. 
@@ -31,3 +36,4 @@ CER_asr (%): Use the provided library (see below) to compute the character error
 CER_user (%): Compute the CER between T and P, then multiply by 100. 
 WER_asr (%): Use the provided library to compute the word error rate between S and P, then multiply by 100.
 WER_user (%): Compute the WER between T and P, then multiply by 100. Backspaces: Number of backspaces recorded during text editing in the current trial. 
+
